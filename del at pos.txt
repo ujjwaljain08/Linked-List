@@ -1,0 +1,15 @@
+public Node deleteatpos(Node node,int pos){
+        if (node==null){
+            return null;
+        }
+        if (pos<0){
+            System.out.print("pos is less than zero");
+        }
+        if (pos==1){
+            Node tempnode=node.next;
+            node=tempnode;
+            return node;
+        }
+        node.next=deleteatpos(node.next,pos-1);
+        return node;
+    }

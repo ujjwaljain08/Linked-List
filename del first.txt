@@ -1,0 +1,9 @@
+public Node deletefirst(Node node){
+        if (node==null){
+            return null;
+        }
+        Node nexnode=node.next;
+        node=nexnode;
+        return node;
+
+    }

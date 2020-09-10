@@ -1,0 +1,47 @@
+package com.company;
+import java.io.*;
+import java.io.*;
+import java.io.*;
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+}
+class LinkedList{
+    public void printLinkedList(Node node) {
+        if (node == null)
+            return;
+
+        System.out.print(node.data+" ");
+        printLinkedList(node.next);
+    }
+    public Node grtnewnode(int data){
+        Node a=new Node();
+        a.next=null;
+        a.data=data;
+        return a;
+    }
+    public Node insert(int data,Node node){
+        if (node==null){
+            return grtnewnode(data);
+        }else {
+            node.next=insert(data,node.next);
+        }
+        return node;
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        LinkedList obj=new LinkedList();
+        Node root=null;
+        root=obj.insert(11,root);
+        root=obj.insert(12,root);
+        root=obj.insert(131,root);
+        obj.printLinkedList(root);
+
+
+    }
+}

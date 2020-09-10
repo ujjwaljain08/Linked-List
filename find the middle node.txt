@@ -1,0 +1,74 @@
+package com.company;
+import java.io.*;
+import java.io.*;
+import java.io.*;
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+}
+class LinkedList{
+    public Node middle(Node node){
+        Node a=node;
+        Node b=node;
+        while (b.next!=null){
+            a=a.next;
+            b=b.next.next;
+        }
+        return a;
+    }
+    public int sizeoflinkedlist(Node node){
+        if(node==null){
+            return 0;
+        }
+
+        return 1+sizeoflinkedlist(node.next);
+    }
+
+
+
+    public void printLinkedList(Node node) {
+        if (node == null)
+            return;
+        System.out.print(node.data+" ");
+        printLinkedList(node.next);
+    }
+    public Node getnewnode(int data){
+        Node a=new Node();
+        a.next=null;
+        a.data=data;
+        return a;
+    }
+    public Node insert(int data,Node node){
+        if (node==null){
+            return getnewnode(data);
+        }else {
+            node.next=insert(data,node.next);
+        }
+        return node;
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        LinkedList obj=new LinkedList();
+        Node root=null;
+        root=obj.insert(11,root);
+        root=obj.insert(12,root);
+        root=obj.insert(13,root);
+        root=obj.insert(14,root);
+        root=obj.insert(15,root);
+        //root=obj.insert(16,root);
+        Node a=obj.middle(root);
+        System.out.print(a.data);
+        System.out.println();
+
+
+
+        obj.printLinkedList(root);
+
+
+    }
+}
